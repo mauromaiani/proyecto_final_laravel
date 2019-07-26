@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/masterInterno.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -33,51 +34,54 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
 
-                    <form class="navbar-form" role="search" action="{{ url("profile/search")}}" method="get">
 
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar" name="title">
-                        <!-- <div class="input-group-btn">
-                          <button class="btn btn-default">
-                            <i class="fas fa-search">Buscar</i>
-                          </button>
-                        </div> -->
-                        <span class="input-group-btn">
-                          <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search"></span>
-                          </button>
-                        </span>
-                      </div>
-                    </form>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->username }} <span class="caret"></span>
+
+                            <!-- search -->
+                        <!-- <form class="navbar-form" role="search" action="{{ url("profile/search")}}" method="get">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar" name="title">
+                            <span class="input-group-btn">
+                              <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                              </button>
+                            </span>
+                          </div>
+                        </form> -->
+
+
+                            <li class="nav-item dropdown d-flex align-items-center">
+
+                              <a class="nav-link" href="/profile/{{ Auth::user()->id }}">{{ Auth::user()->username }}
+                              </a>
+
+                                <a id="navbarDropdown" class="dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                  <img src="{{ Auth::user()->profile->profileImage() }}" class="rounded-circle w-100" style="max-width: 40px"><span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">
+                                  <a class="dropdown-item __textoMenu" href="/profile/{{ Auth::user()->id }}">
                                     Perfil
                                   </a>
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item __textoMenu" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -94,5 +98,10 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
+    <script src="{{ asset('js/master.js') }}"></script>
+
 </body>
 </html>

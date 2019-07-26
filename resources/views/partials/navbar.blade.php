@@ -17,11 +17,11 @@
       <li class="nav-item">
         <a class="nav-link" href="#contacto">contacto</a>
       </li>
-      <li class="nav-item">
-        <a class= "__login __botones" href="/login">ingresar</a>
+      <li class="nav-item pt-2">
+        <a class= "__login __botones " href="/login">ingresar</a>
       </li>
-      <li class="nav-item">
-        <a class= "__registrarse __botones" href="/register">registro</a>
+      <li class="nav-item pt-2">
+        <a class= "__registrarse __botones " href="/register">registro</a>
       </li>
     </ul>
   </div>

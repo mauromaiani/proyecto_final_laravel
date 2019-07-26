@@ -4,10 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+            <div class="">
+              <a class="float-right align-baseline" href="{{ url()->previous() }}"><button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button></a>
+                <div class="__tituloPosteo">{{ __('Recuperar Contraseña') }}</div>
 
-                <div class="card-body">
+
+                <div class="card-body __textoFollow">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -33,8 +37,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                <button type="submit" class="__registrarse">
+                                    {{ __('Enviar contraseña') }}
                                 </button>
                             </div>
                         </div>

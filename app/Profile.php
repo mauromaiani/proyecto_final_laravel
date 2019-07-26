@@ -10,7 +10,7 @@ class Profile extends Model
     protected $guarded = [];
 
     public function profileImage(){
-      $imagePath = ($this->image) ? $this->image : 'profile/iGOG5ib2gfa9YCLQSQXsANQ3jck5FRcSVqZeSWY8.png';
+      $imagePath = ($this->image) ? $this->image : 'profile/profile_photo.png';
       return '/storage/' . $imagePath;
     }
 

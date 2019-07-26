@@ -25,10 +25,11 @@ Route::get('/{user}', 'PostsController@index');
 Route::post('/post', 'PostsController@store');
 Route::get('/post/create', 'PostsController@create');
 Route::get('/post/{post}', 'PostsController@show');
-
+Route::get('/post/{post}/edit', 'PostsController@edit')->name('post.edit');
+Route::patch('/post/{post}', 'PostsController@update')->name('post.update');
+Route::delete('/post/{post}', 'PostsController@destroy')->name('post.delete');
 
 
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
-Route::get('/profile/search/{username}', 'ProfilesController@show');
